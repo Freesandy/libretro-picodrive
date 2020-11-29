@@ -51,93 +51,94 @@ extern "C" {
 struct retro_core_option_definition option_defs_us[] = {
    {
       "picodrive_input1",
-      "Input device 1",
-      "Choose which kind of controller is plugged in slot 1.",
+      "输入设备1",
+      "选择1号控制器的类型. ",
       {
-         { "3 button pad", "3 Button Pad" },
-         { "6 button pad", "6 Button Pad" },
-         { "None", NULL },
+         { "3 button pad", "3键手柄" },
+         { "6 button pad", "6键手柄" },
+         { "None", "无" },
          { NULL, NULL },
       },
       "3 button pad"
    },
    {
       "picodrive_input2",
-      "Input device 2",
-      "Choose which kind of controller is plugged in slot 2.",
+      "输入设备2",
+      "选择2号控制器的类型. ",
       {
-         { "3 button pad", NULL },
-         { "6 button pad", NULL },
-         { "None", NULL },
+         { "3 button pad", "3键手柄" },
+         { "6 button pad", "6键手柄" },
+         { "None", "无" },
          { NULL, NULL },
       },
       "3 button pad"
    },
    {
       "picodrive_sprlim",
-      "No sprite limit",
-      "Enable this to remove the sprite limit.",
+      "无活动块限制",
+      "启用此项移除活动块数量限制. ",
       {
-         { "disabled", NULL },
-         { "enabled",  NULL },
+         { "disabled", "禁用" },
+         { "enabled",  "启用" },
          { NULL, NULL },
       },
       "disabled"
    },
    {
       "picodrive_ramcart",
-      "MegaCD RAM cart",
-      "Emulate a MegaCD RAM cart, used for save game data. WARNING: When enabled, internal save data (BRAM) will be discarded.",
+      "MegaCD RAM卡",
+      "模拟MegaCD RAM卡, 用于保存游戏存档. ",
       {
-         { "disabled", NULL },
-         { "enabled",  NULL },
+         { "disabled", "禁用" },
+         { "enabled",  "启用" },
          { NULL, NULL },
       },
       "disabled"
    },
    {
       "picodrive_region",
-      "Region",
-      "Force a specific region.",
+      "区域",
+      "强制指定区域. ",
       {
-         { "Auto",       NULL },
-         { "Japan NTSC", NULL },
-         { "Japan PAL",  NULL },
-         { "US",         NULL },
-         { "Europe",     NULL },
+         { "Auto",       "自动" },
+         { "Japan NTSC", "日本NTSC" },
+         { "Japan PAL",  "日本PAL" },
+         { "US",         "美国" },
+         { "Europe",     "欧洲" },
          { NULL, NULL },
       },
       "Auto"
    },
    {
       "picodrive_aspect",
-      "Core-provided aspect ratio",
-      "Choose the core-provided aspect ratio. RetroArch's aspect ratio must be set to Core provided in the Video settings.",
+      "显示宽高比",
+      "选择期望的显示宽高比. \n"
+      "此项设置只有当RetroArch的宽高比设为‘内核提供’时有效. ",
       {
-         { "PAR", NULL },
+         { "PAR", "像素宽高比" },
          { "4/3", NULL },
          { "CRT", NULL },
          { NULL, NULL },
       },
-      "PAR"
+      "4/3"
    },
    {
       "picodrive_overscan",
-      "Show Overscan",
-      "Crop out the potentially random glitchy video output that would have been hidden by the bezel around the edge of a standard-definition television screen.",
+      "是否显示过扫描",
+      "剪切掉过扫描区域, 可能包含无效图像, 这些区域通常被标准电视的边框隐藏了. ",
       {
-         { "disabled", NULL },
-         { "enabled",  NULL },
+         { "disabled", "禁用" },
+         { "enabled",  "启用" },
          { NULL, NULL },
       },
       "disabled"
    },
    {
       "picodrive_overclk68k",
-      "68K Overclock",
-      "Overclock the emulated 68K chip.",
+      "68K超频",
+      "对模拟的68K芯片进行超频. ",
       {
-         { "disabled", NULL },
+         { "disabled", "禁用" },
          { "+25%",     NULL },
          { "+50%",     NULL },
          { "+75%",     NULL },
@@ -151,11 +152,12 @@ struct retro_core_option_definition option_defs_us[] = {
 #ifdef DRC_SH2
    {
       "picodrive_drc",
-      "Dynamic recompilers",
-      "Enable dynamic recompilers which help to improve performance. Less accurate than interpreter CPU cores, but much faster.",
+      "动态重编译",
+      "启用动态重编译可提高性能. \n"
+      "比解释型CPU内核精确度低, 但是速度更快. ",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "enabled",  "启用" },
+         { "disabled", "禁用" },
          { NULL, NULL },
       },
       "enabled"
@@ -163,19 +165,22 @@ struct retro_core_option_definition option_defs_us[] = {
 #endif
    {
       "picodrive_audio_filter",
-      "Audio filter",
-      "Enable a low pass audio filter to better simulate the characteristic sound of a Model 1 Genesis. This option is ignored when running Master System and PICO titles. Only the Genesis and its add-on hardware (Sega CD, 32X) employed a physical low pass filter.",
+      "音频过滤",
+      "启用音频低通滤镜, 以更好地模拟MD1型机的声音特性. \n"
+      "此项设置在运行Master System和PICO游戏时忽略. \n"
+      "只有MD/Genesis和相关附加硬件 (Sega CD, 32X) 有物理低通滤镜. ",
       {
-         { "disabled", NULL },
-         { "low-pass", "Low-Pass" },
+         { "disabled", "禁用" },
+         { "low-pass", "启用" },
          { NULL, NULL },
       },
       "disabled"
    },
    {
       "picodrive_lowpass_range",
-      "Low-pass filter %",
-      "Specify the cut-off frequency of the audio low pass filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
+      "低通滤镜强度%",
+      "设置低通滤镜的截断频率. \n"
+      "值越高, 可察觉到的过滤强度越高, 因为更宽范围的高频扩展被减弱了. ",
       {
          { "5",  NULL },
          { "10", NULL },
@@ -202,20 +207,20 @@ struct retro_core_option_definition option_defs_us[] = {
    },
    {
       "picodrive_frameskip",
-      "Frameskip",
-      "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Manual' utilises the 'Frameskip Threshold (%)' setting.",
+      "跳帧",
+      "跳帧避免音频缓冲器欠载运行 (破音) . 以牺牲视觉平滑度为代价来提高性能. '自动'时会根据前端建议跳帧. '手动'时利用'跳帧阈值 (％) '设置. ",
       {
-         { "disabled", NULL },
-         { "auto",     "Auto" },
-         { "manual",   "Manual" },
+         { "disabled", "禁用" },
+         { "auto",     "自动" },
+         { "manual",   "手动" },
          { NULL, NULL },
       },
       "disabled"
    },
    {
       "picodrive_frameskip_threshold",
-      "Frameskip Threshold (%)",
-      "When 'Frameskip' is set to 'Manual', specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
+      "跳帧阈值 (%)",
+      "当'跳帧'设置为'手动'时, 当指定的音频缓冲器占用阈值 (百分比) 低于该阈值将跳帧. 较高的值会跳帧更多, 但会减少破音几率. ",
       {
          { "15", NULL },
          { "18", NULL },
@@ -240,11 +245,11 @@ struct retro_core_option_definition option_defs_us[] = {
 #if !defined(RENDER_GSKIT_PS2)
    {
       "picodrive_renderer",
-      "Renderer",
-      "Fast renderer can't render any mid-frame image changes so it is useful only for some games.",
+      "渲染方式",
+      "快速渲染无法渲染任何帧内图像变化, 因此只对部分游戏有用. ",
       {
-         { "accurate", "Accurate" },
-         { "fast",     "Fast" },
+         { "accurate", "精确" },
+         { "fast",  "快速" },
          { NULL, NULL },
       },
       "accurate"
@@ -252,8 +257,8 @@ struct retro_core_option_definition option_defs_us[] = {
 #endif
    {
       "picodrive_sound_rate",
-      "Sound quality",
-      "Sound quality (in Hz). A lower value may increase performance.",
+      "声音质量",
+      "设置声音输出采样率 (Hz) . 低采样率可提高性能. ",
       {
          { "16000", NULL },
          { "22050", NULL },
@@ -286,7 +291,7 @@ struct retro_core_option_definition *option_defs_intl[RETRO_LANGUAGE_LAST] = {
    NULL,           /* RETRO_LANGUAGE_RUSSIAN */
    NULL,           /* RETRO_LANGUAGE_KOREAN */
    NULL,           /* RETRO_LANGUAGE_CHINESE_TRADITIONAL */
-   option_defs_chs,/* RETRO_LANGUAGE_CHINESE_SIMPLIFIED */
+   NULL,           /* RETRO_LANGUAGE_CHINESE_SIMPLIFIED */
    NULL,           /* RETRO_LANGUAGE_ESPERANTO */
    NULL,           /* RETRO_LANGUAGE_POLISH */
    NULL,           /* RETRO_LANGUAGE_VIETNAMESE */
